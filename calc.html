@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficiency Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #f5f5f5;
+        }
+
+        input[type="text"]:focus {
+            border-color: #76c7c0;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Adds space between buttons */
+        }
+
+        .calculate {
+            background-color: #808080; /* Gray color */
+            color: white;
+        }
+
+        .calculate:hover {
+            background-color: #707070; /* Darker gray */
+        }
+
+        .save {
+            background-color: #808080; /* Gray color */
+            color: white;
+        }
+
+        .save:hover {
+            background-color: #707070; /* Darker gray */
+        }
+
+        .back {
+            background-color: #808080; /* Gray color */
+            color: white;
+        }
+
+        .back:hover {
+            background-color: #707070; /* Darker gray */
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #f5f5f5;
+            resize: none;
+        }
+
+        textarea:focus {
+            border-color: #76c7c0;
+            outline: none;
+        }
+
+        .result {
+            background-color: #3a3a3a;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Efficiency Calculator</h1>
+        <div class="form-group">
+            <label for="area">Building Area (m²):</label>
+            <input type="text" id="area" placeholder="Enter building area">
+        </div>
+        <div class="form-group">
+            <label for="totalEnergy">Total Energy Use (kWh):</label>
+            <input type="text" id="totalEnergy" placeholder="Enter total energy use">
+        </div>
+        <div class="form-group">
+            <label for="renewableEnergy">Renewable Energy Produced (kWh):</label>
+            <input type="text" id="renewableEnergy" placeholder="Enter renewable energy produced">
+        </div>
+        <div class="form-group">
+            <label for="outputEnergy">Output Energy (kWh):</label>
+            <input type="text" id="outputEnergy" placeholder="Enter output energy">
+        </div>
+        <div class="form-group">
+            <label for="description">Building Description:</label>
+            <textarea id="description" placeholder="Enter building description"></textarea>
+        </div>
+        <button class="calculate" onclick="calculateMetrics()">Calculate Metrics</button>
+        <button class="save" onclick="saveToDatabase()">Save to Database</button>
+        
+
+        <div class="result" id="resultArea" style="display: none;"></div>
+    </div>
+
+    <script>
+        function calculateMetrics() {
+            const area = parseFloat(document.getElementById('area').value);
+            const totalEnergyUse = parseFloat(document.getElementById('totalEnergy').value);
+            const renewableEnergy = parseFloat(document.getElementById('renewableEnergy').value);
+            const outputEnergy = parseFloat(document.getElementById('outputEnergy').value);
+
+            if (isNaN(area) || isNaN(totalEnergyUse) || isNaN(renewableEnergy) || isNaN(outputEnergy)) {
+                alert("Please enter valid numerical values.");
+                return;
+            }
+
+            const eui = totalEnergyUse / area; // Energy Use Intensity
+            const eer = (outputEnergy / totalEnergyUse) * 100; // Energy Efficiency Ratio
+
+            const resultArea = document.getElementById('resultArea');
+            resultArea.style.display = 'block';
+            resultArea.innerHTML = `<strong>Results:</strong><br>Energy Use Intensity (EUI): ${eui.toFixed(2)} kWh/m²<br>Energy Efficiency Ratio (EER): ${eer.toFixed(2)} %`;
+        }
+
+        function saveToDatabase() {
+            // Implement the database saving logic using AJAX or Fetch API
+            alert("Data saved successfully! (Mock function)");
+        }
+
+    </script>
+</body>
+</html>

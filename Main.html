@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG 11 - Sustainable Cities and Communities</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #1b2735, #090a1a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Lucida Sans", Arial, sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #e0e0e0;
+            font-weight: 600;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 80%;
+        }
+        .card-button {
+            background: #333a4d;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 20px 30px;
+            text-align: center;
+            border-radius: 12px;
+            width: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .card-button:hover {
+            background: #2b3347;
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.4);
+        }
+        .card-button::before {
+            font-size: 1.2rem;
+            margin-right: 8px;
+            vertical-align: middle;
+            color: #8691a6;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .card-button {
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elegant Title -->
+    <h1>SDG 11: Sustainable Cities and Communities</h1>
+
+    <!-- Container for the buttons -->
+    <div class="button-container">
+        <a href="http://127.0.0.1:5500/Layout.html" class="card-button">Layout</a>
+        <a href="http://127.0.0.1:5500/quiz.html" class="card-button">Quiz</a>
+        <a href="http://127.0.0.1:5500/calc.html" class="card-button">Energy Calculator</a>
+    </div>
+</body>
+</html>
